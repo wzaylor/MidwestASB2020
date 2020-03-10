@@ -1,0 +1,108 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[margin=0.5in]{geometry} % Change margin size
+
+\usepackage{pdfpages} % The package used to include the separate .pdf files in one document
+
+\usepackage{imakeidx} % The package used to create the index
+\makeindex
+
+% The header and footer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mwe}
+\usepackage{xcolor}
+\usepackage[markcase=noupper% remove the uppercasing
+]{scrlayer-scrpage}
+\ohead{}% clear the outer head
+\addtokomafont{pagehead}{\sffamily}
+\addtokomafont{pagefoot}{\tiny}% Making the foot extra tiny to demonstrate
+\addtokomafont{pagenumber}{\large}% that the page number can be controlled on its own. 
+\ofoot*{\pagemark}% the pagenumber in the outer part of the foot, also on plain pages
+% \ifoot*{Walter Wombat\\ Is life on Mars possible?}% Name and title beneath each other in the inner part of the foot
+\setlength{\footheight}{24.0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The front cover %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{avant}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+% %--------------------------------------
+
+\usepackage{graphicx}
+\usepackage{flowfram}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+
+\definecolor{CSUgreen}{RGB}{0,106,77}
+\definecolor{CSUgray}{RGB}{213,210,201}
+\definecolor{white}{RGB}{255,255,255}
+
+% \pagestyle{empty}
+\setcounter{secnumdepth}{0}
+
+\newflowframe{0.65\textwidth}{\textheight}{0pt}{0pt}
+
+% Cover objects
+% ----------------------------------------------------
+\newstaticframe[1]{8.5in}{9.55in}{-.5in}{-0.1in}[coverBackground] % The cover's background image
+\newdynamicframe[1]{7.5in}{2in}{-.5in}{-0.5in}[coverBottomBar] % The cover's bottom green bar & text
+\newdynamicframe[1]{6in}{1.625in}{0in}{0.825\textheight}[coverTopLogo] % The cover's bottom CSU logo
+
+% The cover's bottom green bar & text
+\begin{dynamiccontents*}{coverBottomBar} 
+    \begin{tcolorbox}[notitle,colback=CSUgreen,coltext=white,width=8.5in,height=2in,valign=center,halign=center,outer arc=0mm, boxrule=0mm] % The box that creates the green bar. The text goes inside this box
+    \includegraphics[width=5.25in]{../img/engineering_logo_white.pdf}
+    \hspace{1em}\includegraphics[width=1.25in]{../img/CHMS_logo_cropped.pdf} \\[1em]
+    \href{https://engineering.csuohio.edu/MidwestASB2020}{engineering.csuohio.edu/MidwestASB2020}
+    \end{tcolorbox}
+\end{dynamiccontents*}
+    
+% The cover's top ASB logo
+\begin{dynamiccontents*}{coverTopLogo} 
+    \includegraphics[width=1.5in]{../img/ASBlogo.jpg}
+\end{dynamiccontents*}
+
+    
+% The cover's background image
+\begin{staticcontents*}{coverBackground} 
+    \includegraphics{../img/FlyerCoverBackground02.pdf}
+\end{staticcontents*}
+% ----------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+% The cover
+\begin{tcolorbox}[notitle,frame hidden,coltext=black,colframe=white,standard jigsaw,opacityback=0,valign=top,width=\textwidth,right=-0.1in,sharp corners=all,boxrule=0mm] % The box that creates the green bar. The text goes inside this box
+    \hfill
+    \noindent\begin{tabular}{r}
+        {\Huge 2020 Midwest} \\[1em] % Increase the space between rows
+        {\Huge American Society of Biomechanics} \\[1em] % Increase the space between rows
+        {\Large Regional Meeting} \\[1em]
+        {\large April 8-9  Cleveland, Ohio}
+    \end{tabular}
+
+\end{tcolorbox}
+
+\pagebreak
+\section*{To Do tasks}
+Here are tasks still needed for this book.
+\begin{enumerate}
+    \item Add sponsors
+    \item Add front matter content
+    \item Add back cover
+\end{enumerate}
+
+\section*{Sponsors}
+All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. 
+
+\section*{Schedule}
+All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. 
+
+\pagebreak
+
+\input{AbstractInclude.tex}
+
+\printindex
+
+\end{document}
